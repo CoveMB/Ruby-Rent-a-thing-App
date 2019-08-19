@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # User routes
-  get "user/:id", to: "users#show"
+  get "user/:id", to: "users#show", as: "user"
   # get "user/:id/reservations", to: "user#reservation"
 
   # Item routes

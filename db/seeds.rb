@@ -5,10 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Reservation.delete_all
+Item.delete_all
+User.delete_all
+Category.delete_all
 
+p User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "email@email.com", address: Faker::Address.full_address, password: "password123")
 
-6.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, address: Faker::Address.full_address, password: Faker::Internet.password)
+5.times do
+  p User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, address: Faker::Address.full_address, password: Faker::Internet.password)
 end
 
 p "Users created"
@@ -21,13 +26,13 @@ p "Catagories created"
 
 
 26.times do
-  Item.create!(title: Faker::Game.title, description: Faker::Quote.matz, user: User.find((1..6).to_a.sample), category: Category.find((1..8).to_a.sample))
+  Item.create!(title: Faker::Game.title, description: Faker::Quote.matz, user: User.find(User.pluck(:id).sample), category: Category.find(Category.pluck(:id).sample))
 end
 
 p "Items created"
 
 12.times do
-  Reservation.create!(item: Item.find((1..25).to_a.sample), user: User.find((1..6).to_a.sample))
+  Reservation.create!(item: Item.find(Item.pluck(:id).sample), user: User.find(User.pluck(:id).sample))
 end
 
 p "Reservations created"
