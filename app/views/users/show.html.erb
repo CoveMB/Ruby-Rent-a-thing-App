@@ -1,0 +1,21 @@
+<%= @user %>
+<br>
+<%= @user.first_name %>
+<br>
+<%= current_user.id %>
+<br>
+<ul>
+  <% @user.items.each do |item| %>
+    <li><%= item.title %></li>
+  <% end %>
+
+</ul>
+
+<ul>
+  <% @user.reservations_on_own_items.each do |reservation| %>
+    <li><%= reservation.item.title %>
+      -
+      <%= reservation.user.first_name %></li>
+  <% end %>
+
+</ul>

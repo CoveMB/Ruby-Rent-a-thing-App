@@ -10,10 +10,10 @@ Item.delete_all
 User.delete_all
 Category.delete_all
 
-p User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "email@email.com", address: Faker::Address.full_address, password: "password123")
+User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "email@email.com", address: Faker::Address.full_address, password: "password123")
 
 5.times do
-  p User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, address: Faker::Address.full_address, password: Faker::Internet.password)
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, address: Faker::Address.full_address, password: Faker::Internet.password)
 end
 
 p "Users created"
