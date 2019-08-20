@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # User routes
-  get "user/:id", to: "users#show"
+  get "user/:id", to: "users#show", as: "user"
   # get "user/:id/reservations", to: "user#reservation"
 
   # Item routes
   get "item/new", to: "items#new"
-  post "item", to: "items#create"
-  patch "item/:item_id", to: "items#update"
-  delete "item/:item_id", to: "items#destroy"
+  post "items", to: "items#create"
+  patch "items/:item_id", to: "items#update"
+  delete "items/:item_id", to: "items#destroy"
 
   # Reservation routes
   post "item/:item_id/reservation", to: "reservations#create"
