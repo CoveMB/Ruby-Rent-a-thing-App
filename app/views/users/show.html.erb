@@ -16,7 +16,10 @@
 <ul>
   <% @user.items.each do |item| %>
     <li><%= item.title %></li>
-    <%= image_tag url_for(item.image) %>
+    <% if item.image.attached? %>
+      <%= image_tag url_for(item.image) %>
+    <% else %>
+    <% end %>
   <% end %>
 
 </ul>
