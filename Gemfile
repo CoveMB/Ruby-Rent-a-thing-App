@@ -15,6 +15,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+gem 'pundit'
+gem "aws-sdk-s3", require: false
 
 group :development do
   gem 'faker'
