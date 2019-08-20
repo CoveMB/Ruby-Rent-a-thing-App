@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:items).find(params[:id])
+    authorize @user
   end
 end
