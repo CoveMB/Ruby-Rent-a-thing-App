@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,30 +9,13 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label class="col-md control-label" for="Name (Full name)">Name (Full name)</label>
           <div class="col-md">
             <div class="input-group">
               <div class="input-group-addon"></div>
-              <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-md control-label" for="Upload photo">Upload photo</label>
-          <div class="col-md">
-            <input id="Upload photo" name="Upload photo" class="input-file" type="file">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md control-label" for="Overview (max 400 words)">Overview (max 400 words)</label>
-          <div class="col-md">
-            <textarea class="form-control" rows="10" id="Overview (max 200 words)" name="Overview (max 200 words)">Overview</textarea>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= render "items/form", item: item %>
       </div>
     </div>
   </div>
