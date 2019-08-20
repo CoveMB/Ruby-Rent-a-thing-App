@@ -1,0 +1,13 @@
+<div class="form-inputs">
+  <%= simple_form_for @item do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.association :category %>
+  <%= f.file_field :image %>
+
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, "List your item" %>
+</div>
+<% end %>
