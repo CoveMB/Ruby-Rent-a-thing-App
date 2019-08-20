@@ -1,2 +1,19 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+<br>
+  <% @items.each do |item| %>
+    <h5 class="card-title"><%= item.title %></h5>
+    <p class="card-text"><%= item.description %></p>
+  <% end %>
+</div>
+</div>
+<div class="card" style="width: 18rem;">
+<ul class="list-group list-group-flush">
+  <% @categories.each do |category| %>
+    <li class="list-group-item"><%= category.name %></li>
+  <% end %>
+</ul>
+</div>
