@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   # Reservation routes
   post "item/:item_id/reservation", to: "reservations#create"
-  patch "reservation/reservation_id", to: "reservations#update"
   get "reservation/reservation_id", to: "reservations#show"
   delete "reservation/reservation_id", to: "reservations#destroy"
 
