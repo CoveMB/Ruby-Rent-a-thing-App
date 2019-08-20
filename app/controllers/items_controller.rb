@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to user_path(current_user)
     else
-      render "users/show"
+      render :new
     end
   end
 
@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
+    authorize @item
   end
 
   def items_params

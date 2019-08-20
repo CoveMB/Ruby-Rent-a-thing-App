@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   # User routes
   get "user/:id", to: "users#show", as: "user"
-  # get "user/:id/reservations", to: "user#reservation"
 
   # Item routes
   get "item/new", to: "items#new", as: "new_item"
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
 
   # Reservation routes
   post "item/:item_id/reservation", to: "reservations#create"
-  get "reservation/reservation_id", to: "reservations#show"
   delete "reservation/reservation_id", to: "reservations#destroy"
 
 end

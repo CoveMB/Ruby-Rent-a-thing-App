@@ -1,13 +1,11 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy]
 
-  def show
-  end
-
   def create
     @reservation = Reservation.new(reservations_params)
     @reservation.user = current_user
     @reservation.item = Item.find(params[:item_id])
+    authorize @reservation
     if @reservation.save
       redirect_to user_path(current_user)
     else
@@ -27,6 +25,7 @@ class ReservationsController < ApplicationController
 
   def set_reservation
     @reservation = Reservation.find(params[:reservation_id])
+    authorize @reservation
   end
 
   def reservations_params
