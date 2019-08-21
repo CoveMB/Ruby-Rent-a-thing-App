@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  # User routes
-  # get "users/:id", to: "users#show", as: "user"
+  # User and messaging routes
   resources :users, only:[:show] do
     resources :chats, only:[:index, :create, :show]
   end
+
+  resources :messages, only:[:create]
 
   # Item routes
   get "item/new", to: "items#new", as: "new_item"
@@ -15,15 +16,12 @@ Rails.application.routes.draw do
   delete "items/:item_id", to: "items#destroy"
 
   # Reservation routes
-  post "item/:item_id/reservation", to: "reservations#create"
-  delete "reservation/reservation_id", to: "reservations#destroy"
 
-  # Messaging routes
-  # get "/users/:id/chats", to: "chats#create"
-  # get "/users/:id/chats/:chat_id", to: "chats#index", as: "user_chats"
-  # post "/users/:id/chats/:chat_id", to: "chats#show", as: "user_chat"
+  post "item/:item_id/reservation", to: "reservations#create", as: "new_reservation"
+  delete "reservation/:reservation_id", to: "reservations#destroy"
+  patch "reservation/:reservation_id", to: "reservations#update", as: "update_reservation"
 
-  resources :messages, only:[:create]
+
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

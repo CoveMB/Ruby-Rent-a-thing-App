@@ -6,7 +6,11 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user_is_owner_or_admin?
+  end
+
+  def update?
+    user_is_owner_or_admin?
   end
 
   def destroy?
