@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "item/new", to: "items#new", as: "new_item"
   post "item", to: "items#create"
   patch "items/:item_id", to: "items#update", as: :edit_item
-  delete "items/:item_id", to: "items#destroy"
+  delete "items/:item_id", to: "items#destroy", as: :delete_item
 
   # Reservation routes
   post "item/:item_id/reservation", to: "reservations#create", as: "new_reservation"

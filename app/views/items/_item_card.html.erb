@@ -1,38 +1,23 @@
 <div class="card" style="width: 50%;">
   <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
   <div class="card-user-avatar">
-    <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Avatar" />
+    <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Avatar"/>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= item.title %></h5>
     <p class="card-text"><%= item.description %></p>
   </div>
-  <%= link_to %>
   <% if item.user == current_user %>
-  <div class="card-btn">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
-      <span>Edit</span>
-    </button>
-    <button><%= link_to %></button>
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
-      <span>Delete</span>
-    </button>
-    <button type="button" class="btn btn-troisery" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
-      <span>Show</span>
-    </button>
-  </div>
+    <div class="card-btn">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
+        <span>Edit</span>
+      </button>
+      <button><%= link_to "Delete", delete_item_path(item), method: :delete, class: "btn btn-secondary" %></button>
+    </div>
   <% else %>
-  <div class="card-btn">
-    <button>
+    <div class="card-btn">
       <%= link_to "Rent a thing", new_reservation_path(item), method: :post, class: "btn btn-quatrery" %>
-    </button>
-    <button type="button" class="btn btn-cinquery" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
-      <span>About <%= item.user.username %></span>
-    </button>
-
-    <button type="button" class="btn btn-sixery" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
-      <span>Availability</span>
-    </button>
-  </div>
+      <%= link_to "More thing", user_path(item.user), class: "btn btn-cinquery" %>
+    </div>
   <% end %>
 </div>
