@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   delete "items/:item_id", to: "items#destroy", as: :delete_item
 
   # Reservation routes
+
   post "item/:item_id/reservation", to: "reservations#create", as: "new_reservation"
   delete "reservation/:reservation_id", to: "reservations#destroy"
   patch "reservation/:reservation_id", to: "reservations#update", as: "update_reservation"
+
 
 
   # Serve websocket cable requests in-process
