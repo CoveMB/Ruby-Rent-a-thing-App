@@ -7,6 +7,7 @@
     <h5 class="card-title"><%= item.title %></h5>
     <p class="card-text"><%= item.description %></p>
   </div>
+  <%= link_to %>
   <% if item.user == current_user %>
   <div class="card-btn">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
@@ -22,12 +23,13 @@
   </div>
   <% else %>
   <div class="card-btn">
-    <button type="button" class="btn btn-quatrery" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
-      <span>Book this item</span>
+    <button>
+      <%= link_to "Rent a thing", new_reservation_path(item), method: :post, class: "btn btn-quatrery" %>
     </button>
     <button type="button" class="btn btn-cinquery" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
       <span>About <%= item.user.username %></span>
     </button>
+
     <button type="button" class="btn btn-sixery" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
       <span>Availability</span>
     </button>

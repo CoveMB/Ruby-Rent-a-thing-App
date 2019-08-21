@@ -5,9 +5,8 @@ class PagesController < ApplicationController
     if params['category']
       @items = Item.where(category_id: params['category'].keys)
     else
-      @items = Item.all
+      @items = Item.where.not(user: current_user)
     end
     @categories = Category.all
-
   end
 end
