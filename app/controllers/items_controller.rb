@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @iten.update(items_params)
+    if @item.update(items_params)
       redirect_to user_path(current_user)
     else
       render "users/show"
@@ -41,6 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def items_params
-    params.require(:item).permit(:title, :description, :image, :category_id)
+    params.require(:item).permit(:title, :description, :image, :category_id, :user_id)
   end
 end

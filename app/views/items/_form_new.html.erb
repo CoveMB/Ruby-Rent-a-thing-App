@@ -1,5 +1,5 @@
 <div class="form-inputs">
-  <%= simple_form_for item , url: edit_item_path(item) do |f| %>
+  <%= simple_form_for @item do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.association :category %>

@@ -1,0 +1,13 @@
+<p>Filter By Category</p>
+
+<div class="list-group">
+  <form action="/" method="get" id="myForm">
+    <%  @categories.each do |cat| %>
+      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="list-group-item">
+      <%= cat.name %><br>
+    <% end %>
+    <p>
+      <input type="submit" value="Submit">
+    </p>
+  </form>
+</div>
