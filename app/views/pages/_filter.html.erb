@@ -2,7 +2,7 @@
 
 <div class="list-group">
     <%  @categories.each do |cat| %>
-      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="list-group-item" data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
+      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="list-group-item category-checkbox" data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
       <%= cat.name %><br>
     <% end %>
 </div>

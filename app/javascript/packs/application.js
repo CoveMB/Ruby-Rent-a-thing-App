@@ -2,10 +2,11 @@ import "bootstrap";
 
 document.querySelectorAll('.category-checkbox').forEach((category) =>{
   category.addEventListener('click',() => {
+    console.log('clicked')
    const cat = Array.from(document.querySelectorAll('.category-checkbox:checked')).map((selected) =>{
+      console.log(selected.dataset.category)
       return selected.dataset.category
     })
-    console.log(cat)
     document.querySelectorAll('.item').forEach((item) => {
       item.style.display = 'none'
       const found = cat.find((selected) => {
