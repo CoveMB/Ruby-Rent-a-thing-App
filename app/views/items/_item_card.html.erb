@@ -1,5 +1,9 @@
 <div class="card" style="width: 50%;">
-  <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+  <% if item.image.attached? %>
+    <a href="#"><%= image_tag url_for(item.image), class:"card-img-top" %></a>
+  <% else %>
+    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+  <% end%>
   <div class="card-user-avatar">
     <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Avatar"/>
   </div>
