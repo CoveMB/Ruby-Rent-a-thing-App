@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -10,6 +8,19 @@ class User < ApplicationRecord
 
   has_one_attached :profile_picture
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :username, presence: true, uniqueness: true
+
+  # messaging related
+  has_many :messages
+  has_many :subscriptions
+  has_many :chats, through: :subscriptions
+
+  def existing_chats_users
+    existing_chat_users = []
+    self.chats.each do |chat|
+    existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map { |subscription| subscription.user })
+    end
+    existing_chat_users.uniq
+  end
+
 end
