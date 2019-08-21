@@ -16,7 +16,7 @@ Category.create!(name: "Cuttlers")
 Category.create!(name: "Kittens")
 Category.create!(name: "Sex Toys")
 
-User.create!(username: "admin", email: "admin@email.com", address: Faker::Address.full_address, password: "admin123", admin: true)
+User.create!(username: "admin", email: "admin@email.com", password: "admin123", admin: true)
 
 # User.create!(username: Faker::Name.last_name, email: "email@email.com", address: Faker::Address.full_address, password: "password123")
 #
