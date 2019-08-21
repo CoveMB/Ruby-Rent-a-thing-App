@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # Reservation routes
   post "item/:item_id/reservation", to: "reservations#create"
   delete "reservation/reservation_id", to: "reservations#destroy"
-
+  
   # Messaging routes
   # get "/users/:id/chats", to: "chats#create"
   # get "/users/:id/chats/:chat_id", to: "chats#index", as: "user_chats"

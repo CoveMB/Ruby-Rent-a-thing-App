@@ -1,19 +1,26 @@
+
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-<div class="container">
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
+<div style="width: 20%; height: 30%; margin: 10px; background-color: grey; float:left;">
 <br>
-  <% @items.each do |item| %>
-    <h5 class="card-title"><%= item.title %></h5>
-    <p class="card-text"><%= item.description %></p>
+<p>Filter Video Games By Category</p>
+<form action="/" method="get" id="myForm">
+  <%  @categories.each do |cat| %>
+    <input form="myForm" type="checkbox" name="category[<%= cat.id %>]"> <%= cat.name %>
+    <br>
   <% end %>
+  <br>
+<p> <input type="submit" value="Submit"> </p>
+</form>
 </div>
-</div>
-<div class="card" style="width: 18rem;">
-<ul class="list-group list-group-flush">
-  <% @categories.each do |category| %>
-    <li class="list-group-item"><%= category.name %></li>
-  <% end %>
-</ul>
+<div style="width: 50%; height: 50%; margin: 10px; background-color: grey; float:left;">
+<br>
+      <div>
+           <% @items.each do |item| %>
+            <a href="#" style="color:black"><h5 class="card-title"><%= item.title %></h5></a>
+            <p class="card-text"><%= item.description %></p>
+            <br>
+          <% end %>
+      </div>
+
 </div>
