@@ -15,9 +15,9 @@
         <div class="panel-heading">Region</div>
       </div>
     </div>
-    <%= link_to(user_chats_path(current_user, other_user: @user.id), method: :post) do %>
-    <%= "Message ME" %>
-  <% end %>
+    <div class="btn-container">
+          <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
+    </div>
 
   <!-- enf of col-sm-3 -->
 
