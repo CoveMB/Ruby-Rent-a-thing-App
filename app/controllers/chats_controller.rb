@@ -7,6 +7,8 @@ class ChatsController < ApplicationController
   end
 
   def create
+    current_user.new_message = false
+    current_user.save
     @other_user = User.find(params[:other_user])
     @chat = find_chat(@other_user) || Chat.new(identifier: SecureRandom.hex)
     authorize @chat

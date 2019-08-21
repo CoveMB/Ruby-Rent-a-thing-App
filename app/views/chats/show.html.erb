@@ -10,7 +10,7 @@
       <div id="messages"></div>
     <%end%>
   </div>
-  <%= render partial: 'messages/message_form', locals: {message: @message, chat: @chat}%>
+  <%= render partial: 'messages/message_form', locals: {message: @message, chat: @chat, other_user: @other_user}%>
 </div>
 </div>
 <script>

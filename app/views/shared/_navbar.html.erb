@@ -18,6 +18,9 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
+      <% if current_user.new_message %>
+        <span class="badge badge-light">New</span>
+      <% end %>
     <% else %>
       <li class="nav-item">
         <%= link_to "SignUp", new_user_registration_path, class: "nav-link" %>
