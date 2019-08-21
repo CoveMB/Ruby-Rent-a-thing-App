@@ -16,66 +16,67 @@
       </div>
     </div>
     <div class="btn-container">
-          <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
+      <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
+      <%=link_to "Create Item", new_item_path, class: "btn standard-btn"%>
     </div>
 
-  <!-- enf of col-sm-3 -->
+    <!-- enf of col-sm-3 -->
 
-  <div class="col-sm-9">
-    <% if @user == current_user%>
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#home">My products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#messages">My things rented</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#settings">Things I am renting</a>
-        </li>
-      </ul>
+    <div class="col-sm-9">
+      <% if @user == current_user%>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">My products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#messages">My things rented</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#settings">Things I am renting</a>
+          </li>
+        </ul>
 
-      <div class="tab-content">
+        <div class="tab-content">
 
-        <div class="tab-pane active" id="home">
-          <hr>
-          <div class="d-flex flex-wrap">
-            <% @user.items.each do |item| %>
-              <%= render "items/item_card", item: item %>
-              <%= render "items/item_modal", item: item %>
-            <% end %>
+          <div class="tab-pane active" id="home">
+            <hr>
+            <div class="d-flex flex-wrap">
+              <% @user.items.each do |item| %>
+                <%= render "items/item_card", item: item %>
+                <%= render "items/item_modal", item: item %>
+              <% end %>
+            </div>
+            <hr>
           </div>
-          <hr>
-        </div>
 
-        <div class="tab-pane" id="messages">
-          <hr>
-          <div class="d-flex flex-wrap">
-            <% @user.reservations_on_own_items.each do |reservation|  %>
-              <%= render "items/reservation_card", reservation: reservation %>
-            <% end %>
+          <div class="tab-pane" id="messages">
+            <hr>
+            <div class="d-flex flex-wrap">
+              <% @user.reservations_on_own_items.each do |reservation|  %>
+                <%= render "items/reservation_card", reservation: reservation %>
+              <% end %>
+            </div>
+            <hr>
           </div>
-          <hr>
-        </div>
 
-        <div class="tab-pane" id="settings">
-          <hr>
-          <div class="d-flex flex-wrap">
-            <% @user.reservations_made_on_other_items.each do |reservation|  %>
-              <%= render "items/reservation_card", reservation: reservation %>
-            <%end%>
+          <div class="tab-pane" id="settings">
+            <hr>
+            <div class="d-flex flex-wrap">
+              <% @user.reservations_made_on_other_items.each do |reservation|  %>
+                <%= render "items/reservation_card", reservation: reservation %>
+              <%end%>
+            </div>
           </div>
         </div>
-      </div>
-    <% else %>
-      <div class="d-flex flex-wrap">
-        <% @user.items.each do |item| %>
-          <%= render "items/item_card", item: item %>
-          <%= render "items/item_modal", item: item %>
-        <% end %>
-      </div>
-    <%end%>
+      <% else %>
+        <div class="d-flex flex-wrap">
+          <% @user.items.each do |item| %>
+            <%= render "items/item_card", item: item %>
+            <%= render "items/item_modal", item: item %>
+          <% end %>
+        </div>
+      <%end%>
+    </div>
   </div>
-</div>
 </div>
 </div>
