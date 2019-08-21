@@ -11,22 +11,27 @@ class ItemsController < ApplicationController
     @item.user = current_user
     authorize @item
     if @item.save
+      flash[:notice] = "Item successfully listed"
       redirect_to user_path(current_user)
     else
+      flash[:alert] = "The item could not be listed"
       render :new
     end
   end
 
   def update
     if @item.update(items_params)
+      flash[:notice] = "Item successfully updated"
       redirect_to user_path(current_user)
     else
+      flash[:alert] = "Item could not be updated"
       render "users/show"
     end
   end
 
   def destroy
     if @item.destroy
+      flash[:notice] = "Item successfully deleted"
       redirect_to user_path(current_user)
     else
       render "users/show"
