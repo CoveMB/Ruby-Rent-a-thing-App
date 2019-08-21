@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_162454) do
+ActiveRecord::Schema.define(version: 2019_08_20_234545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2019_08_20_162454) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -55,6 +61,15 @@ ActiveRecord::Schema.define(version: 2019_08_20_162454) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.integer "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "user_id"
@@ -66,6 +81,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_162454) do
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "chat_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,10 +96,9 @@ ActiveRecord::Schema.define(version: 2019_08_20_162454) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
     t.string "address"
     t.boolean "admin", default: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -85,6 +106,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_162454) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "reservations", "items"
   add_foreign_key "reservations", "users"
 end
