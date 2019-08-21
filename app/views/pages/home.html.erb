@@ -1,25 +1,23 @@
-
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <div style="width: 20%; height: 30%; margin: 10px; background-color: grey; float:left;">
 <br>
 <p>Filter Video Games By Category</p>
-<form action="/" method="get" id="myForm">
   <%  @categories.each do |cat| %>
-    <input form="myForm" type="checkbox" name="category[<%= cat.id %>]"> <%= cat.name %>
+    <%= cat.name %> <input type="checkbox" class='category-checkbox' data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
     <br>
   <% end %>
   <br>
-<p> <input type="submit" value="Submit"> </p>
-</form>
 </div>
 <div style="width: 50%; height: 50%; margin: 10px; background-color: grey; float:left;">
 <br>
+    <p id="text" style="display:none">Checkbox is CHECKED!</p>
       <div>
            <% @items.each do |item| %>
-            <a href="#" style="color:black"><h5 class="card-title"><%= item.title %></h5></a>
-            <p class="card-text"><%= item.description %></p>
-            <br>
+             <div class='category-<%=item.category.name.split.join("-") %> item'>
+              <a href="#" style="color:black"><h5 class="card-title"><%= item.title %></h5></a>
+              <p class="card-text"><%= item.description %></p>
+            </div>
           <% end %>
       </div>
 

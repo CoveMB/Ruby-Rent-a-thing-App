@@ -15,6 +15,5 @@ Rails.application.routes.draw do
   post "item/:item_id/reservation", to: "reservations#create"
   delete "reservation/reservation_id", to: "reservations#destroy"
 
-  post ""
 
 end
