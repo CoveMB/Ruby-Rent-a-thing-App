@@ -1,13 +1,8 @@
 <p>Filter By Category</p>
 
 <div class="list-group">
-  <form action="/" method="get" id="myForm">
     <%  @categories.each do |cat| %>
-      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="list-group-item">
+      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="list-group-item" data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
       <%= cat.name %><br>
     <% end %>
-    <p>
-      <input type="submit" value="Submit">
-    </p>
-  </form>
 </div>
