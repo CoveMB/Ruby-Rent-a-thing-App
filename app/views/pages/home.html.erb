@@ -1,29 +1,30 @@
 <div class="btn-group">
-      <form action="/" method="get">
-      <input type="text" name="search" placeholder="enter search">
-      <input type="submit">
-      </form>
-      <form action="/" method="get">
-      <button name="" type="submit" value="">Reset Search</button>
-      </form>
+  <form action="/" method="get">
+    <input type="text" name="search" placeholder="enter search">
+    <input type="submit">
+  </form>
+  <form action="/" method="get">
+    <button name="" type="submit" value="">Reset Search</button>
+  </form>
 </div>
 
+<h1 class="my-4 text-center">Borrow a thing</h1>
 
-  <h1 class="my-4 text-center">Borrow a thing</h1>
+<div class="container">
 
-  <br>
   <div class="row">
     <div class="col-3 border">
       <%= render "filter" %>
     </div>
-    <div class="col-6 border">
+    <div class="col-4 border">
       <% @items.each do |item| %>
         <%= render "items/item_card", item: item %>
       <% end %>
     </div>
 
-    <div class="col-3 border">
+    <div class="col-5 border">
       <%= render "items/map" %>
     </div>
   </div>
+</div>
 </div>
