@@ -4,9 +4,6 @@
   <%= f.input :description %>
   <%= f.association :category %>
   <%= f.file_field :image %>
-</div>
-
-<div class="form-actions">
-  <%= f.button :submit, "List your item" %>
-</div>
+  <%= f.submit value: "List your item" %>
 <% end %>
+</div>
