@@ -1,0 +1,8 @@
+<% if item.image.attached? %>
+  <%= image_tag url_for(item.image), class:"card-img-top" %>
+<% end %>
+<h2><%= item.title %></h2>
+<p><%= item.description %></p>
+<button>
+  <%= link_to "Borrow a thing", new_reservation_path(item), method: :post, class: "btn btn-quatrery" %>
+</button>

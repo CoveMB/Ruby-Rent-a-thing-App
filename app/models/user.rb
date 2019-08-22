@@ -10,7 +10,11 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  # messaging related
+  # Geocode related
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  # Messaging related
   has_many :messages
   has_many :subscriptions
   has_many :chats, through: :subscriptions
