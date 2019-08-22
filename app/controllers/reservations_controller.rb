@@ -2,8 +2,6 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy, :update]
 
   def create
-    p "****************************"
-    p params
     @reservation = Reservation.new(user: current_user)
     @reservation.item = Item.find(params[:item_id])
     authorize @reservation
@@ -16,11 +14,8 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    if params[:status] == "accept"
-      @reservation.status = "Accepted"
-    elsif params[:status] == "reject"
-      @reservation.status = "Rejected"
-    end
+    @reservation.status = "Accepted" if params[:status] == "accept"
+    @reservation.status = "Rejected" if params[:status] == "reject"
     if @reservation.save
       flash[:notice] = "Reservation successfully updated"
       redirect_to user_path(current_user)
