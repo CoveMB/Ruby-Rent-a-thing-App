@@ -21,7 +21,7 @@ const initFilter = () => {
 
       });
       console.log(count);
-      document.getElementById("counter").innerHTML = `Item Count = ${count}`;
+      document.getElementById("counter").innerHTML = `${count}`;
     });
   });
 };
