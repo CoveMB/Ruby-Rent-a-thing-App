@@ -42,10 +42,11 @@
 
 .card {
   overflow: hidden;
-  max-height: 400px;
-  max-width: 400px;
+  // max-height: 400px;
+  // max-width: 400px;
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
-  margin: 15px 5px 15px 5px
+  // margin: 15px 5px 15px 5px
+  width: 45%;
 }
 
 .btn-container {

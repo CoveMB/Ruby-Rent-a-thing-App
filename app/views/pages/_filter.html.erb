@@ -3,7 +3,7 @@
   <%  @categories.each do |cat| %>
     <label class="container">
       <%= cat.name %>
-      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="list-group-item category-checkbox" data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
+      <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="hidden-filter list-group-item category-checkbox" data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
       <span class="checkmark"></span>
     </label>
   <% end %>

@@ -1,7 +1,7 @@
 class ItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      record.include(:user, :image)
     end
   end
 
