@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      record.includes(:items, :reservations_made_on_other_items, :reservations_on_own_items, :profile_picture)
     end
   end
 
