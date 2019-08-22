@@ -1,6 +1,14 @@
-<div class="container">
+<div class="btn-group">
+      <form action="/" method="get">
+      <input type="text" name="search" placeholder="enter search">
+      <input type="submit">
+      </form>
+      <form action="/" method="get">
+      <button name="" type="submit" value="">Reset Search</button>
+      </form>
+</div>
 
-  <h1 class="my-4 text-center">Rent a thing</h1>
+<div class="container">
   <h2 id='counter'> Item Count = <%= @items.length %> </h2>
 
   <br>
