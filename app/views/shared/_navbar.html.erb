@@ -1,9 +1,11 @@
 <nav class="menu">
   <ol>
-    <li class="img-logo">  <%= link_to root_path, class: "navbar-brand" do %>
-  <%= image_tag("logo1.png", width: 30) %>
-<% end %></li>
-    <% if user_signed_in? %>
+    <li class="img-logo">
+      <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag("logo1.png", width: 30) %>
+    <% end %>
+  </li>
+  <% if user_signed_in? %>
     <li class="menu-item"><%= link_to "Profile", user_path(current_user)%></li>
     <li class="menu-item">
       <%= link_to "Your messages", user_chats_path(current_user) %>
@@ -11,14 +13,14 @@
     <li class="menu-item">
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </li>
-    <% else %>
+  <% else %>
+    <li class="menu-item"></li>
     <li class="menu-item">
       <%= link_to "SignUp", new_user_registration_path %>
     </li>
     <li class="menu-item">
       <%= link_to "LogIn", new_user_session_path %>
     </li>
-    <% end %>
-  </ol>
+  <% end %>
+</ol>
 </nav>
-
