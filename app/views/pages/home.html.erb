@@ -8,12 +8,16 @@
 
   <br>
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-3">
       <%= render "filter" %>
     </div>
-    <div class="col-lg-9">
+    <div class="col-6">
       <% @items.each do |item| %>
         <%= render "items/item_card", item: item %>
       <% end %>
     </div>
+    <div class="col-3">
+      <%= render "items/map" %>
+    </div>
   </div>
+</div>
