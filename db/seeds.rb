@@ -1,5 +1,4 @@
 
-
 if Rails.env.production?
   Category.delete_all
 

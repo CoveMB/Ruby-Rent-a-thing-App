@@ -1,10 +1,15 @@
-<div class="container">
+<div class="btn-group">
+      <form action="/" method="get">
+      <input type="text" name="search" placeholder="enter search">
+      <input type="submit">
+      </form>
+      <form action="/" method="get">
+      <button name="" type="submit" value="">Reset Search</button>
+      </form>
+</div>
+
 
   <h1 class="my-4 text-center">Borrow a thing</h1>
-  <h2 id='counter'>
-    Item Count =
-    <%= @items.length %>
-  </h2>
 
   <br>
   <div class="row">
@@ -16,6 +21,7 @@
         <%= render "items/item_card", item: item %>
       <% end %>
     </div>
+
     <div class="col-3 border">
       <%= render "items/map" %>
     </div>
