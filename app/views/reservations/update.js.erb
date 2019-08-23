@@ -1,0 +1,5 @@
+function updateStatus(status) { const reservationStatus = document.getElementById("status-<%= @reservation.id %>"); reservationStatus.innerHTML = status; document.getElementById("accepted-<%= @reservation.id %>").remove(); document.getElementById("rejected-<%= @reservation.id %>").remove() }
+
+<% unless @reservation.errors.any? %>
+  updateStatus("<%= @reservation.status %>");
+<% end %>

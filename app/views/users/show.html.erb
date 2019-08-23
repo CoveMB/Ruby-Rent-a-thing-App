@@ -9,16 +9,16 @@
         <% if @user.profile_picture.attached? %>
           <div class="avatar-profileimg">
             <a href="#"><%= image_tag url_for(@user.profile_picture), class:"card-img-top" %></a>
-           </div>
+          </div>
         <% else %>
           <div class="avatar-profileimg">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
-        </div>
+            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
+          </div>
         <% end%>
       </div>
       <div class="panel panel-default">
-    <div class="panel-heading"></div>
-  </div>
+        <div class="panel-heading"></div>
+      </div>
     </div>
     <div class="btn-container">
       <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
@@ -26,9 +26,8 @@
       <button type="button" class="btn standard-btn" data-toggle="modal" data-target="#exampleModal-<%= @user.id %>">
           <span>Edit Profile</span>
         </button>
-        <%= render "user_modal", user: @user %>
-    <p class="p-5">Adress: <%= @user.address %></p>
-
+    <%= render "user_modal", user: @user %>
+      <p class="p-5">Adress: <%= @user.address %></p>
     </div>
 
     <!-- enf of col-sm-3 -->
@@ -62,9 +61,9 @@
 
           <div class="tab-pane" id="messages">
             <hr>
-            <div class="inner-tabs-cards">
+            <div class="inner-tabs-cards my-thing-rented">
               <% @user.reservations_on_own_items.each do |reservation|  %>
-                <%= render "items/reservation_card", reservation: reservation %>
+                <%= render "reservations/reservation_card", reservation: reservation %>
               <% end %>
             </div>
             <hr>
@@ -74,7 +73,7 @@
             <hr>
             <div class="d-flex flex-wrap">
               <% @user.reservations_made_on_other_items.each do |reservation|  %>
-                <%= render "items/reservation_card", reservation: reservation %>
+                <%= render "reservations/reservation_card", reservation: reservation %>
               <%end%>
             </div>
           </div>

@@ -18,8 +18,8 @@ class ReservationsController < ApplicationController
     @reservation.status = "Rejected" if params[:status] == "reject"
     if @reservation.save
       flash[:notice] = "Reservation successfully updated"
-      redirect_to user_path(current_user)
     else
+      flash[:alert] = "Something went wrong we could not update"
       render "users/show"
     end
   end
