@@ -7,9 +7,13 @@
     <div class="col-sm-3">
       <div class="text-center">
         <% if @user.profile_picture.attached? %>
-          <a href="#"><%= image_tag url_for(@user.profile_picture), class:"card-img-top" %></a>
+          <div class="avatar-profileimg">
+            <a href="#"><%= image_tag url_for(@user.profile_picture), class:"card-img-top" %></a>
+           </div>
         <% else %>
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
+          <div class="avatar-profileimg">
+        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
+        </div>
         <% end%>
 
         <h2>Adress:
@@ -19,14 +23,15 @@
         </button>
         <%= render "user_modal", user: @user %>
       </div>
-
       <div class="panel panel-default">
-        <div class="panel-heading">Region</div>
-      </div>
+    <div class="panel-heading"></div>
+  </div>
     </div>
     <div class="btn-container">
       <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
       <%=link_to "Create Item", new_item_path, class: "btn standard-btn"%>
+      <%=link_to "Edit Profile", new_item_path, class: "btn standard-btn"%>
+    <h4 class="p-5">Region</h4>
     </div>
 
     <!-- enf of col-sm-3 -->
@@ -60,7 +65,7 @@
 
           <div class="tab-pane" id="messages">
             <hr>
-            <div class="d-flex flex-wrap">
+            <div class="inner-tabs-cards">
               <% @user.reservations_on_own_items.each do |reservation|  %>
                 <%= render "items/reservation_card", reservation: reservation %>
               <% end %>

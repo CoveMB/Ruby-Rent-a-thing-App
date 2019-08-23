@@ -1,17 +1,47 @@
-.container {
+@font-face {
+  font-family: Titilium;
+  src: url(https://fonts.googleapis.com/css?family=Titillium+Web&display=swap);
+  font-weight:400;
+}
+
+@font-face {
+  font-family: Anton;
+  src: url(https://fonts.googleapis.com/css?family=Anton&display=swap);
+  font-weight:400;
+}
+
+
+.container-filter {
  display: block;
  position: relative;
  padding-left: 35px;
  margin-bottom: 12px;
  cursor: pointer;
- font-size: 22px;
+ font-size: 17px;
  -webkit-user-select: none;
  -moz-user-select: none;
  -ms-user-select: none;
  user-select: none;
+ color: #FDA085
+
 }
 
+h1 {
+  font-family: Anton, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  color: #AC0C0C;
+}
 
+h4 {
+  color: #EA8D8D;
+  font-family: Titilium, sans-serif;
+}
+
+h5{
+  color: #EA8D8D;
+  font-family: Titilium, sans-serif;
+}
 .hidden-filter {
  position: absolute;
  opacity: 0;
@@ -33,7 +63,7 @@
  background-color: #ccc;
 }
 .container input:checked ~ .checkmark {
- background-color: #AC0C0C;
+ background-color: #BE3B3B;
 }
 .checkmark:after {
  content: "";
@@ -53,4 +83,12 @@
  -webkit-transform: rotate(45deg);
  -ms-transform: rotate(45deg);
  transform: rotate(45deg);
+}
+
+.filter-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  z-index: 3000;
 }

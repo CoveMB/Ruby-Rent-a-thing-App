@@ -17,10 +17,25 @@
   --gradient-color: #fbfbfb;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  z-index: 4000;
+}
+
+.map {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  z-index: 3000;
+}
 
 
 body {
-  background: #FFFFFF;
+  background: #F5F5F5;
   font-family: "Varela Round", sans-serif;
   margin: 0;
   padding: 0;

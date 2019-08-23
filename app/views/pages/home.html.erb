@@ -1,28 +1,27 @@
-<div class="btn-group">
-  <form action="/" method="get">
-    <input type="text" name="search" placeholder="enter search">
-    <input type="submit">
-  </form>
-  <form action="/" method="get">
-    <button name="" type="submit" value="">Reset Search</button>
-  </form>
-</div>
-
 <h1 class="my-4 text-center">Borrow a thing</h1>
+
+<div class="container-toppage">
+<form action="/" method="get">
+  <input id="search-bar" class="search-bar" type="text" placeholder="Search your thing...">
+  <a id="btnSearch" class="btn-search"><i class="fa fa-search"></i></a>
+</form>
+<form action="/" method="get">
+</form>
+</div>
 
 <div class="container">
 
   <div class="row">
-    <div class="col-3 border">
+    <div class="col-3">
       <%= render "filter" %>
     </div>
-    <div class="col-4 border">
+    <div class="col-5">
       <% @items.each do |item| %>
         <%= render "items/item_card", item: item %>
       <% end %>
     </div>
 
-    <div class="col-5 border">
+    <div class="col-4">
       <%= render "items/map" %>
     </div>
   </div>
