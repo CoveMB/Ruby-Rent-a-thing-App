@@ -23,10 +23,12 @@
     </div>
     <div class="btn-container">
       <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
-      <%=link_to "Create Item", new_item_path, class: "btn standard-btn"%>
-      <button type="button" class="btn standard-btn" data-toggle="modal" data-target="#exampleModal-<%= @user.id %>">
-        <span>Edit Profile</span>
-      </button>
+      <% if @user == current_user%>
+        <%=link_to "Create Item", new_item_path, class: "btn standard-btn"%>
+        <button type="button" class="btn standard-btn" data-toggle="modal" data-target="#exampleModal-<%= @user.id %>">
+          <span>Edit Profile</span>
+        </button>
+      <% end %>
       <%= render "user_modal", user: @user %>
       <p class="p-5">Adress:
         <%= @user.address %></p>
