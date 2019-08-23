@@ -1,7 +1,8 @@
 <div class="form-inputs">
-  <%= simple_form_for user , url: edit_item_path(user) do |f| %>
+  <%= simple_form_for user do |f| %>
   <%= f.input :username %>
   <%= f.input :address %>
+  <%= f.input :password %>
   <%= f.file_field :profile_picture %>
   <%= f.submit value: "Update your profile" %>
 <% end %>
