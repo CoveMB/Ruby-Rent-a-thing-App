@@ -20,8 +20,6 @@ Rails.application.configure do
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
   config.assets.compress = true
-  config.serve_static_assets = true
-  RAILS_ENV=production bundle exec rake assets:precompile
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
