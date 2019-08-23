@@ -1,12 +1,14 @@
-<p>Filter By Category
-  <span id="counter"><%= @items.length %></span>
-  things found</p>
+<div class="filter-sticky">
+<h4>Filter By Category</h4>
+  <h5><span id="counter"><%= @items.length %></span>
+  things found</h5>
 <div class="list-group">
   <%  @categories.each do |cat| %>
-    <label class="container">
+    <label class="container-filter">
       <%= cat.name %>
       <input form="myForm" type="checkbox" name="category[<%= cat.id %>]" class="hidden-filter list-group-item category-checkbox" data-category='<%=cat.name.split.join("-") %>' id='<%= cat.id %>'>
       <span class="checkmark"></span>
     </label>
   <% end %>
+</div>
 </div>

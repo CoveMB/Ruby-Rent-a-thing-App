@@ -12,18 +12,23 @@
 
 }
 
+h6{
+  color:#FF7F50
+}
 
 .card-img-top{
-  height: 220px;
+  height: 200px;
 }
 
 .card-body{
     text-align: center;
+    color:#C0C0C0;
 }
 
 .card-btn{
   display:center;
   vertical-align: middle;
+
 }
 
 .card-user-avatar img {
@@ -36,8 +41,25 @@
   height: 45px;
 }
 
+.btn-primaryy{
+  background-color: red;
+}
+
 .btn-quatrery{
-  background-color: green
+  background-color: #BE3B3B;
+  color: #FFFFFF;
+  margin-right: 2%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+
+}
+
+.btn-cinquery{
+  color:#C0C0C0;
+}
+
+.btn-secondary{
+  background-color:#FF6347;
 }
 
 .card {
@@ -52,7 +74,7 @@
 .btn-container {
     display: inline-block;
     padding: 16px 0px;
-    margin: 0px 16px;
+    margin: 2px 16px;
     overflow: hidden;
 }
 *, *:before, *:after {
@@ -61,7 +83,7 @@
     transition: 0.3s;
 }
 .standard-btn {
-     color: rgba(172, 12, 12, 0.8) ;
+    color: rgba(172, 12, 12, 0.8) ;
     border: solid 1px rgba(172, 12, 12, 0.8) ;
     font-size: 1rem;
     position: relative;
@@ -90,4 +112,18 @@
 }
 .standard-btn:hover:before {
       width: 100%;
+}
+
+.avatar-profileimg img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  position: relative;
+  top: -10px;
+  left: 1.25rem;
+  width: 200px;
+  height: 200px;
+}
+
+.inner-tabs-cards {
+  grid-columns: 1fr 1fr 1fr;
 }
