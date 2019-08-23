@@ -15,6 +15,7 @@
             <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
           </div>
         <% end%>
+
       </div>
       <div class="panel panel-default">
         <div class="panel-heading"></div>
@@ -24,10 +25,11 @@
       <%=link_to "Message", user_chats_path(current_user, other_user: @user.id), method: :post, class: "btn standard-btn"%>
       <%=link_to "Create Item", new_item_path, class: "btn standard-btn"%>
       <button type="button" class="btn standard-btn" data-toggle="modal" data-target="#exampleModal-<%= @user.id %>">
-          <span>Edit Profile</span>
-        </button>
-    <%= render "user_modal", user: @user %>
-      <p class="p-5">Adress: <%= @user.address %></p>
+        <span>Edit Profile</span>
+      </button>
+      <%= render "user_modal", user: @user %>
+      <p class="p-5">Adress:
+        <%= @user.address %></p>
     </div>
 
     <!-- enf of col-sm-3 -->

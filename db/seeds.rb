@@ -2,13 +2,17 @@
 if Rails.env.production?
   Category.delete_all
 
-  Category.create!(name: "Clothing")
+  Category.create!(name: "Housing")
   Category.create!(name: "Cars")
+  Category.create!(name: "Furnitures")
+  Category.create!(name: "Pets")
+  Category.create!(name: "Heavy Machinery")
   Category.create!(name: "Cuttlers")
-  Category.create!(name: "Kittens")
-  Category.create!(name: "Sex Toys")
 
-  # User.create!(username: "admin", email: "admin@email.com", password: "admin123", admin: true)
+  User.create!(username: "Jean", password: "password1", address: "35 rue des trois freres Paris")
+  User.create!(username: "Beau", password: "password1", address: "1176 rue saint Catherine Ouest Montreal")
+  User.create!(username: "Benjamin", password: "password1", address: "5417 rue saint dominique montreal")
+  User.create!(username: "Lisa", password: "password1", address: "355 3e avenue Quebec City")
 end
 
 
