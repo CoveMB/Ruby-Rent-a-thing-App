@@ -6,9 +6,18 @@
 
     <div class="col-sm-3">
       <div class="text-center">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
-        <h6>change profile picture</h6>
-        <input type="file" class="text-center center-block file-upload">
+        <% if @user.profile_picture.attached? %>
+          <a href="#"><%= image_tag url_for(@user.profile_picture), class:"card-img-top" %></a>
+        <% else %>
+          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
+        <% end%>
+
+        <h2>Adress:
+          <%= @user.address %></h2>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= @user.id %>">
+          <span>Edit</span>
+        </button>
+        <%= render "user_modal", user: @user %>
       </div>
 
       <div class="panel panel-default">
