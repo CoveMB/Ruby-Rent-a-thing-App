@@ -157,14 +157,14 @@ body {
   z-index: 100;
 }
 
-a:focus {
+ .menu a:focus {
   outline: none;
   position: relative;
 }
-a:focus:after {
+.menu a:focus:after {
   width: 50px;
 }
-a:after {
+.menu a:after {
   content: "";
   background: #FBFBFB;
   position: absolute;

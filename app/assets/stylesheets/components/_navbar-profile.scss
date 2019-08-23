@@ -5,3 +5,8 @@
 .nav-item > a {
   color: #FF6347;
 }
+
+.tab-content {
+  display: grid;
+  grid: 1fr 1fr
+}

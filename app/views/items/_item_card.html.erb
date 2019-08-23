@@ -2,11 +2,11 @@
   <% if item.image.attached? %>
     <a href="#"><%= image_tag url_for(item.image), class:"card-img-top" %></a>
   <% else %>
-    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+    <img class="card-img-top" src="http://placehold.it/700x400" alt="">
   <% end%>
   <div class="card-user-avatar">
     <% if item.user.profile_picture.attached? %>
-      <a href="#"><%= image_tag url_for(item.user.profile_picture), class:"card-img-top" %></a>
+      <%= image_tag url_for(item.user.profile_picture), class:"card-img-top" %>
     <% else %>
       <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Avatar"/>
     <% end%>
