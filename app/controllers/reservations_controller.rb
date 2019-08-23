@@ -39,8 +39,4 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:reservation_id])
     authorize @reservation
   end
-
-  # def reservations_params
-  #   params.require(:reservation).permit(:user_id)
-  # end
 end

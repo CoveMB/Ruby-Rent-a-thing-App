@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       @items = Item.all
       @categories = Category.all
     end
-    @string = "You searched for #{params['search']}"
+    @string = "#{params['search']}"
     @geocoded = @items.filter { |item| item.user.longitude && item.user.latitude }
     @markers = @geocoded.map do |item|
       {

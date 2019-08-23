@@ -1,12 +1,16 @@
 
-<div class="card category-<%= item.category.name.split.join('-') %> item" style="width: 100%;">
+<div class="card category-<%=item.category.name.split.join('-')%> item" style="width: 100%;">
   <% if item.image.attached? %>
     <a href="#"><%= image_tag url_for(item.image), class:"card-img-top" %></a>
   <% else %>
     <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
   <% end%>
   <div class="card-user-avatar">
-    <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Avatar"/>
+    <% if item.user.profile_picture.attached? %>
+      <a href="#"><%= image_tag url_for(item.user.profile_picture), class:"card-img-top" %></a>
+    <% else %>
+      <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Avatar"/>
+    <% end%>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= item.title %></h5>

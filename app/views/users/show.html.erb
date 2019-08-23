@@ -6,9 +6,22 @@
 
     <div class="col-sm-3">
       <div class="text-center">
-        <div class="avatar-profileimg">
+        <% if @user.profile_picture.attached? %>
+          <div class="avatar-profileimg">
+            <a href="#"><%= image_tag url_for(@user.profile_picture), class:"card-img-top" %></a>
+           </div>
+        <% else %>
+          <div class="avatar-profileimg">
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="alt">
         </div>
+        <% end%>
+
+        <h2>Adress:
+          <%= @user.address %></h2>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= @user.id %>">
+          <span>Edit</span>
+        </button>
+        <%= render "user_modal", user: @user %>
       </div>
       <div class="panel panel-default">
     <div class="panel-heading"></div>
